@@ -17,11 +17,6 @@ client = secretmanager.SecretManagerServiceClient()
 name = f"projects/{project_id}/secrets/{secret_id}/versions/{version_id}"
 # Access the secret version.
 response = client.access_secret_version(request={"name": name})
-
-# Print the secret payload.
-#
-# WARNING: Do not print the secret in a production environment - this
-# snippet is showing how to access the secret material.
 payload = response.payload.data.decode("UTF-8")
 
 #to cache images as workaround for not working properly
