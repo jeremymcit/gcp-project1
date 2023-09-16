@@ -1,0 +1,5 @@
+flet
+google-api-python-client
+google-cloud-storage
+diskcache
+google-cloud-secret-manager
