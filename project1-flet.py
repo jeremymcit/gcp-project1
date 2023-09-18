@@ -12,12 +12,12 @@ project_id = "project1-398709"
 secret_id = "access-photos"
 version_id = 1
 # Create the Secret Manager client.
-client = secretmanager.SecretManagerServiceClient()
+#client = secretmanager.SecretManagerServiceClient()
 # Build the resource name of the secret version.
-name = f"projects/{project_id}/secrets/{secret_id}/versions/{version_id}"
+#name = f"projects/{project_id}/secrets/{secret_id}/versions/{version_id}"
 # Access the secret version.
-response = client.access_secret_version(request={"name": name})
-payload = response.payload.data.decode("UTF-8")
+#response = client.access_secret_version(request={"name": name})
+#payload = response.payload.data.decode("UTF-8")
 
 #to cache images as workaround for not working properly
 def fetch_image(url: str) -> str:
@@ -51,16 +51,16 @@ def list_bucket_objects(bucket_name):
 
 
 def main(page: ft.Page):
-    t = ft.Text(value="おはよう！まいことジェレミーの写真の簡単なウエブサイトを作ってみた！見てみてね！", color="black")
+    t = ft.Text(value="DATS Project 1 Webpage. This is the demonstration webpage that I (Jeremy) created for Project 1 of the DATS Practicum.", color="black")
     page.controls.append(t)
     page.update()
     
-    page.title = "Hi Maiko!"
+    page.title = "Project 1"
     page.theme_mode = ft.ThemeMode.LIGHT
     page.padding = 50
     page.update()
     
-    image_urls = list_bucket_objects('images-bucket987')
+    image_urls = ["https://storage.googleapis.com/images-bucket987/OIP.jpeg", "https://storage.googleapis.com/images-bucket987/h7BcHU.jpg"] #deleted this temporarily to make the program simpler#list_bucket_objects('images-bucket987')
 
     images = ft.Row(expand=1, wrap=False, scroll="always")
 
